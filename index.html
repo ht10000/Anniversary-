@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Family Story</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0b0c1a;
+color:white;
+overflow:hidden;
+}
+
+/* Cinematic 3D Moving Background */
+.background{
+position:fixed;
+width:100%;
+height:100%;
+background: radial-gradient(circle at 20% 30%, #2a0845, transparent 60%),
+            radial-gradient(circle at 80% 70%, #1f4068, transparent 60%),
+            #0b0c1a;
+animation: bgMove 18s infinite alternate ease-in-out;
+z-index:-2;
+}
+
+@keyframes bgMove{
+0%{transform:scale(1);}
+100%{transform:scale(1.08);}
+}
+
+/* Slide Container */
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+opacity:0;
+transform:scale(1.05);
+transition:all 1.2s ease;
+}
+
+.slide.active{
+opacity:1;
+transform:scale(1);
+}
+
+/* Card Design */
+.card{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(18px);
+padding:50px;
+border-radius:25px;
+max-width:750px;
+text-align:center;
+box-shadow:0 0 60px rgba(255,255,255,0.08);
+}
+
+/* Image Styling */
+.card img{
+width:100%;
+max-height:300px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:25px;
+box-shadow:0 0 40px rgba(255,255,255,0.15);
+}
+
+/* Typography */
+h1{
+font-family:'Playfair Display',serif;
+font-size:46px;
+margin-bottom:20px;
+}
+
+p{
+font-size:19px;
+line-height:1.6;
+opacity:0.9;
+}
+
+button{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff758c,#ff7eb3);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.4s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.final h1{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 10px #fff;}
+to{text-shadow:0 0 30px #ff7eb3;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+<div class="card">
+<img src="anniversary.jpeg">
+<h1>Happy 22nd Anniversary ❤️</h1>
+<p>To Mumma & Papa —  
+A journey that continues to inspire every single day.</p>
+<button onclick="startStory()">Begin Our Story</button>
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+<div class="card">
+<img src="wedding.jpeg">
+<h1>💍 The Wedding</h1>
+<p>On 29 february 2004, two souls promised forever  
+and built a beautiful life together.</p>
+<button onclick="nextSlide()">Next ➝</button>
+</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+<div class="card">
+<img src="mybirth.jpeg">
+<h1>👶 My Birth</h1>
+<p>In 2005, a cutie (hehehe) arrived turning your love into a family and making your blissful (ik by default) 
+The greatest blessing of my life is being your child.</p>
+<button onclick="nextSlide()">Next ➝</button>
+</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+<div class="card">
+<img src="mom.jpeg">
+<h1>💼 A Strong Woman</h1>
+<p>Mumma built her career as an English Professor..a big leap towards success-  
+balancing ambition and unconditional love.</p>
+<button onclick="nextSlide()">Next ➝</button>
+</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide">
+<div class="card">
+<img src="sibling.jpeg">
+<h1>👶 Another Blessing</h1>
+<p>In 2012, our family grew complete and stronger when harshu badmash arrived filling our lives
+with more laughter and memories.</p>
+<button onclick="nextSlide()">Next ➝</button>
+</div>
+</div>
+
+<!-- FINAL SLIDE -->
+<div class="slide final">
+<div class="card">
+<img src="final.jpeg">
+<h1>Forever & Always</h1>
+<p>Wishing you both many many more years of togetherness with life full of happiness and peace. May all yoyr wishes come true and you keep showering your blessings upon us two idiotic personalities :)</p>
+</div>
+</div>
+
+<script>
+
+let slides = document.querySelectorAll(".slide");
+let current = 0;
+
+function startStory(){
+document.getElementById("bgMusic").play();
+nextSlide();
+}
+
+function nextSlide(){
+slides[current].classList.remove("active");
+current++;
+if(current < slides.length){
+slides[current].classList.add("active");
+}
+}
+
+</script>
+
+</body>
+</html>
