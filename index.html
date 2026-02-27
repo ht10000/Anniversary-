@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,114 +6,72 @@
 <title>Our Family Story</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Poppins',sans-serif;
-background:#0b0c1a;
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
 color:white;
 overflow:hidden;
 }
 
-/* Cinematic 3D Moving Background */
+/* Background */
 .background{
 position:fixed;
 width:100%;
 height:100%;
-background: radial-gradient(circle at 20% 30%, #2a0845, transparent 60%),
-            radial-gradient(circle at 80% 70%, #1f4068, transparent 60%),
-            #0b0c1a;
-animation: bgMove 18s infinite alternate ease-in-out;
-z-index:-2;
+background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+animation:bgMove 10s infinite alternate ease-in-out;
+z-index:-1;
 }
 
 @keyframes bgMove{
 0%{transform:scale(1);}
-100%{transform:scale(1.08);}
+100%{transform:scale(1.1);}
 }
 
-/* Slide Container */
+/* Slides */
 .slide{
 position:absolute;
 width:100%;
 height:100%;
-display:flex;
+display:none;
 justify-content:center;
 align-items:center;
-opacity:0;
-transform:scale(1.05);
-transition:all 1.2s ease;
+text-align:center;
+padding:40px;
 }
 
 .slide.active{
-opacity:1;
-transform:scale(1);
+display:flex;
 }
 
-/* Card Design */
+/* Card */
 .card{
-background:rgba(255,255,255,0.06);
-backdrop-filter:blur(18px);
-padding:50px;
-border-radius:25px;
-max-width:750px;
-text-align:center;
-box-shadow:0 0 60px rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:20px;
+max-width:700px;
 }
 
-/* Image Styling */
+/* Images */
 .card img{
 width:100%;
 max-height:300px;
 object-fit:cover;
-border-radius:20px;
-margin-bottom:25px;
-box-shadow:0 0 40px rgba(255,255,255,0.15);
-}
-
-/* Typography */
-h1{
-font-family:'Playfair Display',serif;
-font-size:46px;
+border-radius:15px;
 margin-bottom:20px;
 }
 
-p{
-font-size:19px;
-line-height:1.6;
-opacity:0.9;
-}
-
+/* Button */
 button{
-margin-top:25px;
-padding:12px 28px;
+padding:10px 25px;
 border:none;
-border-radius:30px;
-background:linear-gradient(45deg,#ff758c,#ff7eb3);
+border-radius:20px;
+background:#ff4d6d;
 color:white;
-font-size:16px;
 cursor:pointer;
-transition:0.4s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-.final h1{
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 10px #fff;}
-to{text-shadow:0 0 30px #ff7eb3;}
+margin-top:20px;
 }
 
 </style>
@@ -122,67 +81,61 @@ to{text-shadow:0 0 30px #ff7eb3;}
 
 <div class="background"></div>
 
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="music.mp3" loop></audio>
 
-<!-- SLIDE 1 -->
+<!-- Slide 1 -->
 <div class="slide active">
 <div class="card">
 <img src="anniversary.jpeg">
 <h1>Happy 22nd Anniversary ❤️</h1>
-<p>To Mumma & Papa —  
-A journey that continues to inspire every single day.</p>
-<button onclick="startStory()">Begin Our Story</button>
+<p>To Mumma & Papa</p>
+<button onclick="start()">Begin</button>
 </div>
 </div>
 
-<!-- SLIDE 2 -->
+<!-- Slide 2 -->
 <div class="slide">
 <div class="card">
 <img src="wedding.jpeg">
-<h1>💍 The Wedding</h1>
-<p>On 29 february 2004, two souls promised forever  
-and built a beautiful life together.</p>
-<button onclick="nextSlide()">Next ➝</button>
+<h1>The Wedding</h1>
+<p>on 29 february 2004,two souls promised forever  
+and built a beautiful life together. </p>
+<button onclick="next()">Next</button>
 </div>
 </div>
 
-<!-- SLIDE 3 -->
+<!-- Slide 3 -->
 <div class="slide">
 <div class="card">
 <img src="mybirth.jpeg">
-<h1>👶 My Birth</h1>
-<p>In 2005, a cutie (hehehe) arrived turning your love into a family and making your blissful (ik by default) 
-The greatest blessing of my life is being your child.</p>
-<button onclick="nextSlide()">Next ➝</button>
+<h1>My Birth</h1>
+<p>In 2005, your love became a family when a cutie arrived (hehehe) making your life blissful.</p>
+<button onclick="next()">Next</button>
 </div>
 </div>
 
-<!-- SLIDE 4 -->
+<!-- Slide 4 -->
 <div class="slide">
 <div class="card">
 <img src="mom.jpeg">
-<h1>💼 A Strong Woman</h1>
-<p>Mumma built her career as an English Professor..a big leap towards success-  
-balancing ambition and unconditional love.</p>
-<button onclick="nextSlide()">Next ➝</button>
+<h1>Mom's Career</h1>
+<p>In 2010, mumma's huge leap towards success when she joined as an English professor- balancing ambition and care & love.</p>
+<button onclick="next()">Next</button>
 </div>
 </div>
 
-<!-- SLIDE 5 -->
+<!-- Slide 5 -->
 <div class="slide">
 <div class="card">
 <img src="sibling.jpeg">
-<h1>👶 Another Blessing</h1>
-<p>In 2012, our family grew complete and stronger when harshu badmash arrived filling our lives
-with more laughter and memories.</p>
-<button onclick="nextSlide()">Next ➝</button>
+<h1>Sibling Birth</h1>
+<p>In 2012, another member added. The arrival of harshu badmash made out family complete and stronger filling our lives with joys n laughters.</p>
+<button onclick="next()">Next</button>
 </div>
 </div>
 
-<!-- FINAL SLIDE -->
-<div class="slide final">
+<!-- Final -->
+<div class="slide">
 <div class="card">
 <img src="final.jpeg">
 <h1>Forever & Always</h1>
@@ -191,23 +144,21 @@ with more laughter and memories.</p>
 </div>
 
 <script>
+var slides = document.getElementsByClassName("slide");
+var current = 0;
 
-let slides = document.querySelectorAll(".slide");
-let current = 0;
-
-function startStory(){
-document.getElementById("bgMusic").play();
-nextSlide();
+function start(){
+document.getElementById("music").play();
+next();
 }
 
-function nextSlide(){
+function next(){
 slides[current].classList.remove("active");
 current++;
 if(current < slides.length){
 slides[current].classList.add("active");
 }
 }
-
 </script>
 
 </body>
